@@ -1,0 +1,10 @@
+[Unit]
+Description=Timer for backup-py
+
+[Timer]
+OnBootSec=300
+OnCalendar=*-*-* 03:30:00
+Persistent=false
+
+[Install]
+WantedBy=timers.target

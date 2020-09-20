@@ -1,0 +1,9 @@
+[Unit]
+Description=backup-py
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/backup.py
+
+[Install]
+WantedBy=multi-user.target

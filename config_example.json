@@ -1,0 +1,31 @@
+{
+    "settings": {
+        "strftime": "%Y-%m-%d_%H-%M",
+        "format": "gztar",
+        "min_space_pct": "0.1"
+    },
+    "backups": {
+        "name_cmds": {
+            "enabled": true,
+            "source": ["/srv/some-server", "/config/some-server"],
+            "dest": ["/media/backups/some-server"],
+            "follow_symlinks": true,
+            "archive_permissions": "0o700",
+            "archive_owner": "server-owner",
+            "archive_group": "server-owner",
+            "cmd_start": ["systemctl stop some-server"],
+            "cmd_end": ["systemctl start some-server"]
+        },
+        "name_no-cmds": {
+            "enabled": true,
+            "source": ["/srv/some-server2"],
+            "dest": ["/media/backups/some-server2", "/media/cloud/some-server-2"],
+            "follow_symlinks": false,
+            "archive_permissions": null,
+            "archive_owner": null,
+            "archive_group": null,
+            "cmd_start": [],
+            "cmd_end": []
+        }
+    }
+}
