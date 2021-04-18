@@ -40,6 +40,8 @@ Requires Python 3.6+. Tested only on Linux but in theory should work on Windows 
 
 ## Warnings
 
+* Using the tar archive formats seems to result in weird archive hierarchy where tmp and stuff gets prepended before the tar (KDE Dolphin was suppressing this, while 7-Zip was showing this). I don't see this same behavior with zip. It doesn't really affect the actual backup.
+
 * While I have tested this as working on my setup, you should always validate that you can backup **and restore**!
 
 * Make sure to check systemctl status and journalctl for logs periodically, since this script won't do anything beyond non-zero exit codes and logging errors to stdout!

@@ -15,6 +15,7 @@ CONFIG_LOCATION = '/root/backup-py/config.json'
 TMP_ROOT = '/tmp'
 TMP_DIR = os.path.join(TMP_ROOT, 'backup-py',
     datetime.now().strftime('%Y-%m-%d_%H-%m-%f'))
+TMP_ARCHIVE_DIR = os.path.join(TMP_DIR, 'archives')
 
 
 def main():
@@ -79,7 +80,8 @@ def main():
                     continue
 
             print(f'[{key}] Making archive')
-            archive_path = shutil.make_archive(bkup_path, settings['format'],
+            archive_base_name = os.path.join(TMP_ARCHIVE_DIR, bkup_name)
+            archive_path = shutil.make_archive(archive_base_name, settings['format'],
                 root_dir=TMP_DIR, base_dir=bkup_name)
             tmp_path = Path(archive_path)
             archive_name = tmp_path.name
